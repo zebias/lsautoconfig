@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.zebias.lsautoconfig.controller.IndexController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="设置">
+          <items>
+              <MenuItem fx:id="path" mnemonicParsing="false" onAction="#configPath" text="路径" />
+            <MenuItem fx:id="exitBtn" mnemonicParsing="false" onAction="#exitAction" text="退出" />
+          </items>
+        </Menu>
+<!--          <Menu mnemonicParsing="false" text="日志">-->
+<!--              <MenuItem mnemonicParsing="false" fx:id="logInfo" onAction="#logEvent" text="日志" />-->
+<!--          </Menu>-->
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Button fx:id="startBtn" layoutX="580.0" layoutY="325.0" mnemonicParsing="false" onAction="#startEvent" prefHeight="29.0" prefWidth="65.0" text="确认">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ProgressBar fx:id="pBar" layoutX="14.0" layoutY="336.0" prefHeight="18.0" prefWidth="420.0" progress="0.0" />
+            <Label fx:id="pBarText" layoutX="14.0" layoutY="310.0" prefHeight="15.0" prefWidth="367.0" text="Label" />
+            <TableView fx:id="tView" layoutX="10.0" layoutY="8.0" prefHeight="292.0" prefWidth="949.0">
+            </TableView>
+            <Label layoutX="446.0" layoutY="334.0" text="操作员:" />
+            <TextField fx:id="nameInput" layoutX="496.0" layoutY="330.0" prefHeight="23.0" prefWidth="75.0" />
+            <Label layoutX="679.0" layoutY="309.0" prefHeight="55.0" prefWidth="275.0" text="加油配吧，工具人！" textFill="#30e15f">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

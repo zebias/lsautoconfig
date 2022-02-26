@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="245.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.zebias.lsautoconfig.controller.LogController">
+   <children>
+      <TextArea fx:id="logText" layoutX="4.0" layoutY="5.0" prefHeight="234.0" prefWidth="592.0" />
+   </children>
+</AnchorPane>

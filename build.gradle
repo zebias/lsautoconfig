@@ -1,0 +1,62 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.7.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+}
+
+group = 'org.zebias'
+version = '0.0.8-beta'
+sourceCompatibility = '1.8'
+
+repositories {
+    // 添加阿里云仓库
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    // 添加自动化脚本支持
+    implementation 'org.seleniumhq.selenium:selenium-java:4.1.1'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.0.3'
+    // https://mvnrepository.com/artifact/cn.hutool/hutool-all
+    implementation group: 'cn.hutool', name: 'hutool-all', version: '5.7.21'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'de.roskenet:springboot-javafx-support:2.1.6'
+
+    implementation 'org.apache.poi:poi:4.1.2'
+    implementation 'org.apache.poi:poi-scratchpad:4.1.2'
+    implementation 'org.apache.poi:poi-ooxml:4.1.2'
+
+}
+
+
+jar {
+    manifest {
+        attributes(
+                "Manifest-Version": 1.0,
+                "Main-Class": "org.zebias.lsautoconfig.LsAutoconfigApplication",
+                "Class-Path": configurations.compile.collect { "lib/${it.name}" }.join(' '))
+    }
+}
+
+
+task copyJar(type:Copy){
+
+    from configurations.runtime
+
+    into ('build/libs/lib')
+}
+
+task release(type: Copy,dependsOn: [build,copyJar]) {
+
+}
+
+test {
+    useJUnitPlatform()
+}
